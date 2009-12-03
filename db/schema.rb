@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091126155520) do
+ActiveRecord::Schema.define(:version => 20091203160716) do
+
+  create_table "messages", :force => true do |t|
+    t.text     "body"
+    t.string   "user_agent"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                              :null => false

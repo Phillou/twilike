@@ -1337,3 +1337,214 @@ Processing UsersController#show (for 130.79.7.1 at 2009-12-03 16:44:54) [GET]
   [4;36;1mSQL (0.7ms)[0m   [0;1mCOMMIT[0m
 Rendering users/show
 Completed in 22ms (View: 1, DB: 3) | 200 OK [http://codd.u-strasbg.fr/account]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) [0m
+  [4;36;1mMessage Columns (0.0ms)[0m   [0;1mMysql::Error: Table 'licprosil_ars_philippemeyer.messages' doesn't exist: SHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (28.9ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (14.6ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091126155520)
+  [4;35;1mSQL (15.0ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091126155520')[0m
+Migrating to CreateMessages (20091203160716)
+  [4;35;1mSQL (12.3ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091203160716')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 130.79.7.1 at 2009-12-03 17:18:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '9a3b80a5c8d7a1bea0848f0cadf5afd1952e593f72a9ff7ba65680f5498471d36a6b234c89612f16dd9c829fbe07181a99ff5a721dc8356d8b14124353624513') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (3.1ms)
+Completed in 106ms (View: 21, DB: 2) | 200 OK [http://codd.u-strasbg.fr/account/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 130.79.7.1 at 2009-12-03 17:19:16) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"phillou", "email"=>"philippemeyer@unistra.fr"}}
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '9a3b80a5c8d7a1bea0848f0cadf5afd1952e593f72a9ff7ba65680f5498471d36a6b234c89612f16dd9c829fbe07181a99ff5a721dc8356d8b14124353624513') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'philippemeyer@unistra.fr') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'phillou') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'rEt861tnvY4aAhnI4cDB') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '9a3b80a5c8d7a1bea0848f0cadf5afd1952e593f72a9ff7ba65680f5498471d36a6b234c89612f16dd9c829fbe07181a99ff5a721dc8356d8b14124353624513') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 2) LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO `users` (`single_access_token`, `last_request_at`, `created_at`, `crypted_password`, `perishable_token`, `updated_at`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('rEt861tnvY4aAhnI4cDB', '2009-12-03 16:19:16', '2009-12-03 16:19:16', 'd99efb89247fa057f9ae32c0f7f8cb6c8b894fdb4655438cd6d7fcd8feddb3e7d2a608f04812216193365513b5440105a33a5ebfe54eff73529ade2f29315bb0', 'mWOXl6M7OTc4udHk0VpV', '2009-12-03 16:19:16', 0, '130.79.7.1', 'NQsN9NXb2xeXgWTi7RaE', '2009-12-03 16:19:16', '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404', 1, NULL, 'phillou', NULL, 'philippemeyer@unistra.fr')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://codd.u-strasbg.fr:3020/account/new
+Completed in 287ms (DB: 4) | 302 Found [http://codd.u-strasbg.fr/account]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 130.79.7.1 at 2009-12-03 17:19:17) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-12-03 16:19:17', `perishable_token` = 'L_OTMqHbNhcoFkg5yv3a', `last_request_at` = '2009-12-03 16:19:17' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://codd.u-strasbg.fr:3020/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 22ms (DB: 3) | 302 Found [http://codd.u-strasbg.fr/account/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 130.79.7.1 at 2009-12-03 17:19:17) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-12-03 16:19:17', `perishable_token` = 'ppZ1iFGpILMd1Eocjyev', `last_request_at` = '2009-12-03 16:19:17' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Rendering users/show
+Completed in 30ms (View: 6, DB: 3) | 200 OK [http://codd.u-strasbg.fr/account]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mMessage Columns (0.8ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (12.1ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (13.4ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20091126155520)
+  [4;35;1mSQL (11.5ms)[0m   [0mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) NOT NULL, `email` varchar(255) NOT NULL, `crypted_password` varchar(255) NOT NULL, `password_salt` varchar(255) NOT NULL, `persistence_token` varchar(255) NOT NULL, `single_access_token` varchar(255) NOT NULL, `perishable_token` varchar(255) NOT NULL, `login_count` int(11) DEFAULT 0 NOT NULL, `failed_login_count` int(11) DEFAULT 0 NOT NULL, `last_request_at` datetime, `current_login_at` datetime, `last_login_at` datetime, `current_login_ip` varchar(255), `last_login_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091126155520')[0m
+Migrating to CreateMessages (20091203160716)
+  [4;35;1mSQL (10.7ms)[0m   [0mCREATE TABLE `messages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `body` text, `user_agent` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20091203160716')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW FIELDS FROM `messages`[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mdescribe `messages`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW KEYS FROM `messages`[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mUser Columns (1.2ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 130.79.7.1 at 2009-12-03 17:25:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;36;1mUser Columns (1.5ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404') LIMIT 1[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendering users/new
+Rendered users/_form (3.1ms)
+Completed in 69ms (View: 16, DB: 2) | 200 OK [http://codd.u-strasbg.fr/account/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#create (for 130.79.7.1 at 2009-12-03 17:25:50) [POST]
+  Parameters: {"commit"=>"Register", "action"=>"create", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "login"=>"phillou", "email"=>"philippemeyer@unistra.fr"}}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404') LIMIT 1[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`email`) = BINARY 'philippemeyer@unistra.fr') LIMIT 1[0m
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (LOWER(`users`.`login`) = BINARY 'phillou') LIMIT 1[0m
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT `users`.id FROM `users` WHERE (`users`.`persistence_token` = BINARY 'a68fb70b9b52cdb9e9477e46685cbc49d46dd817ee68348a57e0b5fcf64bfe475ec9c6d890bbbf4a560db2e992bfe0a49d7ecb0b2ed3beb95db2272f42728038') LIMIT 1[0m
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT `users`.id FROM `users` WHERE (`users`.`single_access_token` = BINARY 'IesIGfzFmWwFbALR2AXo') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = '79ce55c747f8a5c63390ce3a762f0fbfc8aca1e126c9715242dbfa2a3f6572e9bb2ba25f26ca40fb27c4f5e5fb369575fc08df8dd78ec9ab283e407b4ce90404') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mUser Create (0.4ms)[0m   [0mINSERT INTO `users` (`single_access_token`, `last_request_at`, `created_at`, `crypted_password`, `perishable_token`, `updated_at`, `failed_login_count`, `current_login_ip`, `password_salt`, `current_login_at`, `persistence_token`, `login_count`, `last_login_ip`, `login`, `last_login_at`, `email`) VALUES('IesIGfzFmWwFbALR2AXo', '2009-12-03 16:25:50', '2009-12-03 16:25:50', '31d937b64ecddd18de2e2a4444e789bd3669d86bdb6f4e0cc2e72c36ecd63cae339ac9b1d32b015b827d032024b99a817bf12a2623bab88d0e6852926f787a0f', 'VE4S-RqlmX6nA59gFQNd', '2009-12-03 16:25:50', 0, '130.79.7.1', '95aUCugtVvzJ7bUISQol', '2009-12-03 16:25:50', 'a68fb70b9b52cdb9e9477e46685cbc49d46dd817ee68348a57e0b5fcf64bfe475ec9c6d890bbbf4a560db2e992bfe0a49d7ecb0b2ed3beb95db2272f42728038', 1, NULL, 'phillou', NULL, 'philippemeyer@unistra.fr')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://codd.u-strasbg.fr:3020/account/new
+Completed in 304ms (DB: 4) | 302 Found [http://codd.u-strasbg.fr/account]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#new (for 130.79.7.1 at 2009-12-03 17:25:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+  [4;35;1mUser Columns (1.5ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.4ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'a68fb70b9b52cdb9e9477e46685cbc49d46dd817ee68348a57e0b5fcf64bfe475ec9c6d890bbbf4a560db2e992bfe0a49d7ecb0b2ed3beb95db2272f42728038') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-12-03 16:25:50', `perishable_token` = 'PzKcCAwMl-eV3_TnJo6-', `last_request_at` = '2009-12-03 16:25:50' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mCOMMIT[0m
+Redirected to http://codd.u-strasbg.fr:3020/account
+Filter chain halted as [:require_no_user] rendered_or_redirected.
+Completed in 29ms (DB: 3) | 302 Found [http://codd.u-strasbg.fr/account/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 130.79.7.1 at 2009-12-03 17:25:50) [GET]
+  Parameters: {"action"=>"show", "controller"=>"users"}
+  [4;36;1mUser Columns (1.4ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'a68fb70b9b52cdb9e9477e46685cbc49d46dd817ee68348a57e0b5fcf64bfe475ec9c6d890bbbf4a560db2e992bfe0a49d7ecb0b2ed3beb95db2272f42728038') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-12-03 16:25:50', `perishable_token` = 'srHQu4EjCN6eTkrqjJ1q', `last_request_at` = '2009-12-03 16:25:50' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCOMMIT[0m
+Rendering users/show
+Completed in 28ms (View: 6, DB: 3) | 200 OK [http://codd.u-strasbg.fr/account]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 130.79.7.1 at 2009-12-03 17:26:18) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Columns (1.3ms)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'a68fb70b9b52cdb9e9477e46685cbc49d46dd817ee68348a57e0b5fcf64bfe475ec9c6d890bbbf4a560db2e992bfe0a49d7ecb0b2ed3beb95db2272f42728038') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Update (0.3ms)[0m   [0mUPDATE `users` SET `updated_at` = '2009-12-03 16:26:18', `perishable_token` = 'i68skfapdtyRBD4E16YN', `last_request_at` = '2009-12-03 16:26:18' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCOMMIT[0m
+Rendering users/show
+Completed in 170ms (View: 7, DB: 3) | 200 OK [http://codd.u-strasbg.fr/users/1]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing UsersController#show (for 130.79.7.1 at 2009-12-03 17:26:45) [GET]
+  Parameters: {"action"=>"show", "id"=>"show", "controller"=>"users"}
+  [4;35;1mUser Columns (1.2ms)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`persistence_token` = 'a68fb70b9b52cdb9e9477e46685cbc49d46dd817ee68348a57e0b5fcf64bfe475ec9c6d890bbbf4a560db2e992bfe0a49d7ecb0b2ed3beb95db2272f42728038') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mUser Update (0.3ms)[0m   [0;1mUPDATE `users` SET `updated_at` = '2009-12-03 16:26:45', `perishable_token` = 'hk-vifNioK0IVZZu-_K1', `last_request_at` = '2009-12-03 16:26:45' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCOMMIT[0m
+Rendering users/show
+Completed in 24ms (View: 2, DB: 3) | 200 OK [http://codd.u-strasbg.fr/users/show]
