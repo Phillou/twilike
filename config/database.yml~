@@ -31,7 +31,7 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: licprosil_ars_philippemeyer
+  database: tlicprosil_ars_philippemeyer
   pool: 5
   username: philippemeyer
   password: philippemeyer
